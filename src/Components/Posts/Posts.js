@@ -2,15 +2,20 @@ import {useEffect, useState} from "react";
 import Post from "../Post/Post";
 
 
-function Posts() {
-    let [posts, setPosts] = useState([]);
+function Posts({userIDComment}) {
+    let [users, setUsers] = useState([]);
+
+    /*
+        'https://api.spacexdata.com/v3/launches/'
+    */
 
     useEffect(() => {
-        fetch('https://api.spacexdata.com/v3/launches/')
+        fetch('https://jsonplaceholder.typicode.com/users')
             .then(value => value.json())
-            .then(allPosts => {
-                const filtered = allPosts.filter(item => item.launch_year !== '2020')
-                setPosts(filtered);
+            .then(allUsers => {
+                /*const filtered = allPosts.filter(item => item.launch_year !== '2020')
+                setPosts(filtered);*/
+                setUsers(allUsers)
             })
     }, [])
 
@@ -19,7 +24,7 @@ function Posts() {
         <div className="Posts">
 
             {
-                posts.map(value => <Post value={value} key={value.id}/>)
+                users.map(value => <Post value={value} userIDComment={userIDComment} key={value.id}/>)
             }
         </div>
     );
