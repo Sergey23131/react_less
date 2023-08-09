@@ -1,0 +1,8 @@
+const baseURL = 'http://owu.linkpc.net/carsAPI/v1'
+
+const urls = {
+    cars: '/cars',
+    autoPark: '/autoparks'
+}
+
+export {baseURL, urls}
