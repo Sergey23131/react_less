@@ -4,7 +4,7 @@ function UserInfo() {
 
     let location = useLocation()
     let {state} = location;
-    console.log(state)
+
     return (
         <div className="UserInfo">
             <h3>{state.email}</h3>

@@ -3,6 +3,8 @@ import Home from "./components/Home/Home";
 import Layout from "./components/Layout/Layout";
 import Users from "./components/Users/users";
 import UserInfo from "./components/userInfo/UserInfo";
+import Posts from "./components/Posts/posts";
+import PostDetails from "./components/post-details/PostDetails";
 
 
 function App() {
@@ -21,6 +23,9 @@ function App() {
                 <Routes>
                     <Route path={'/'} element={<Home/>}/>
                     <Route path={'/layout'} element={<Layout/>}>
+                        <Route path={'posts'} element={<Posts/>}>
+                            <Route path={':id'} element={<PostDetails/>}/>
+                        </Route>
                         <Route path={'users'} element={<Users/>}>
                             <Route path={':id'} element={<UserInfo/>}/>
                         </Route>
