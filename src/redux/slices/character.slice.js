@@ -1,9 +1,9 @@
 const {createSlice} = require("@reduxjs/toolkit");
 
-let initialState = {
+const initialState = {
     characters: [],
-    nextPage: null,
-    prevPage: null
+    prevPage: null,
+    nextPage: null
 }
 
 const slice = createSlice({
