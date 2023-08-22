@@ -1,19 +1,18 @@
-const {createSlice} = require("@reduxjs/toolkit");
+import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
     characters: [],
     prevPage: null,
     nextPage: null
-}
+};
 
 const slice = createSlice({
-    name: 'characterSlice', //unique
+    name: 'characterSlice',
     initialState,
     reducers: {
-
         setCharacters: (state, action) => {
-            const {result, info: {next, prev}} = action.payload;
-            state.characters = result
+            const {results, info: {next, prev}} = action.payload;
+            state.characters = results
             state.prevPage = prev
             state.nextPage = next
         }
@@ -27,4 +26,7 @@ const characterActions = {
     ...actions
 }
 
-export {characterReducer, characterActions}
+export {
+    characterReducer,
+    characterActions
+}
